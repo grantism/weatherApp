@@ -39,7 +39,7 @@ class WeatherApp extends StatelessWidget {
 //TODO: styles and sizes should not be hardcoded.
 weatherBuilder(weather, context) {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Image.asset("images/" + weather.description + ".png"),
+    Image.asset(weather.getImagePath()),
     SizedBox(height: 10),
     Text(weather.locationName, style: TextStyle(fontSize: 32, color: Colors.white)),
     SizedBox(height: 10),
