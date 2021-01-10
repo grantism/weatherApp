@@ -10,6 +10,7 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+       backgroundColor: Color.fromRGBO(42, 53, 72, 1.0),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -35,12 +36,15 @@ class WeatherApp extends StatelessWidget {
   }
 }
 
+//TODO: styles and sizes should not be hardcoded.
 weatherBuilder(weather, context) {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Text(weather.locationName, style: TextStyle(fontSize: 32)),
+    Image.asset("images/" + weather.description + ".png"),
     SizedBox(height: 10),
-    Text(weather.description, style: TextStyle(fontSize: 20)),
+    Text(weather.locationName, style: TextStyle(fontSize: 32, color: Colors.white)),
+    SizedBox(height: 10),
+    Text(weather.description, style: TextStyle(fontSize: 20, color: Colors.white)),
     SizedBox(height: 40),
-    Text(weather.currentTemp.toString() + '\u2103', style: TextStyle(fontSize: 48)),
+    Text(weather.currentTemp.toString() + '\u2103', style: TextStyle(fontSize: 48, color: Colors.white)),
   ]);
 }

@@ -12,9 +12,10 @@ class Weather {
 
   factory Weather.fromRawJson(String str) => Weather.fromJson(json.decode(str));
 
+  //TODO: See if there is a safer way to parse the JSON.
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         locationName: json["name"],
-        description: json["weather"][0]["description"],
+        description: json["weather"][0]["main"],
         currentTemp: json["main"]["temp"].round(),
         minTemp: json["main"]["temp_min"].round(),
         maxTemp: json["main"]["temp_max"].round(),
