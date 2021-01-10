@@ -21,8 +21,7 @@ class WeatherApp extends StatelessWidget {
                   builder: (BuildContext context,
                       AsyncSnapshot<ApiResult> snapshot) {
                     if (snapshot.data is SuccessState) {
-                      Weather weather =
-                          (snapshot.data as SuccessState).value;
+                      Weather weather = (snapshot.data as SuccessState).value;
                       return weatherBuilder(weather, context);
                     } else if (snapshot.data is ErrorState) {
                       String errorMessage = (snapshot.data as ErrorState).msg;
@@ -36,12 +35,11 @@ class WeatherApp extends StatelessWidget {
   }
 }
 
-
 weatherBuilder(weather, context) {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
     Text(weather.locationName, style: TextStyle(fontSize: 32)),
     SizedBox(height: 10),
-    Text('Mostly Cloudy', style: TextStyle(fontSize: 20)),
+    Text(weather.description, style: TextStyle(fontSize: 20)),
     SizedBox(height: 40),
     Text(weather.currentTemp.toString() + '\u2103', style: TextStyle(fontSize: 48)),
   ]);
