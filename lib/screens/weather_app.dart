@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/network/api_request.dart';
 
 class WeatherApp extends StatelessWidget {
+  ApiRequest _apiResponse = ApiRequest();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +20,9 @@ class WeatherApp extends StatelessWidget {
           Text('Mostly Cloudy', style: TextStyle(fontSize: 20)),
           SizedBox(height: 40),
           Text('21\u2103', style: TextStyle(fontSize: 48)),
+            FutureBuilder(
+                future: _apiResponse.getWeather()
+            )
         ]),
       )),
     );
