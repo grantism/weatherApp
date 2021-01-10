@@ -1,4 +1,3 @@
-
 class ApiResult<T> {
   ApiResult._();
 
